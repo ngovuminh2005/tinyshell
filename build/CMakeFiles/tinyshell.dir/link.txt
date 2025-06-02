@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\tinyshell.dir/objects.a
+C:\Strawberry\c\bin\ar.exe qc CMakeFiles\tinyshell.dir/objects.a @CMakeFiles\tinyshell.dir\objects1.rsp
+C:\Strawberry\c\bin\g++.exe -Wl,--whole-archive CMakeFiles\tinyshell.dir/objects.a -Wl,--no-whole-archive -o tinyshell.exe -Wl,--out-implib,libtinyshell.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\tinyshell.dir\linkLibs.rsp

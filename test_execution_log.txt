@@ -1,0 +1,257 @@
+==================== CLEAN BUILD LOG START ====================
+
+
+-- Configuring Tinyshell (Group 1) for C++17
+-- Source files: /home/ubuntu/tinyshell/src/builtins.cpp;/home/ubuntu/tinyshell/src/environment.cpp;/home/ubuntu/tinyshell/src/executor.cpp;/home/ubuntu/tinyshell/src/expansion.cpp;/home/ubuntu/tinyshell/src/lexer.cpp;/home/ubuntu/tinyshell/src/main.cpp;/home/ubuntu/tinyshell/src/parser_ast.cpp;/home/ubuntu/tinyshell/src/shell_core.cpp
+-- Executable target: tinyshell
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/tinyshell/build
+Consolidate compiler generated dependencies of target tinyshell
+[ 11%] Building CXX object CMakeFiles/tinyshell.dir/src/parser_ast.cpp.o
+[ 22%] Building CXX object CMakeFiles/tinyshell.dir/src/shell_core.cpp.o
+[ 33%] Linking CXX executable tinyshell
+[100%] Built target tinyshell
+
+==================== TEST EXECUTION START ====================
+
+Hello Tinyshell
+Multiple   Spaces   Here
+Single Quoted String
+Escaped$Variable 'Quote'
+Before Comment
+tests/hybrid_project_tests.tsh: line 17: setvar: command not found
+tests/hybrid_project_tests.tsh: line 18: getvar: command not found
+Current value is
+tests/hybrid_project_tests.tsh: line 20: setvar: command not found
+
+tests/hybrid_project_tests.tsh: line 22: getvar: command not found
+tests/hybrid_project_tests.tsh: line 23: unsetvar: command not found
+tests/hybrid_project_tests.tsh: line 24: getvar: command not found
+
+tests/hybrid_project_tests.tsh: line 26: setvar: command not found
+tests/hybrid_project_tests.tsh: line 27: setvar: command not found
+A= B=
+tests/hybrid_project_tests.tsh: line 31: setvar: command not found
+tests/hybrid_project_tests.tsh: line 32: getvar: command not found
+tests/hybrid_project_tests.tsh: line 33: unsetvar: command not found
+$
+tests/hybrid_project_tests.tsh: line 35: unexpected EOF while looking for matching `}'
+tests/hybrid_project_tests.tsh: line 181: syntax error: unexpected end of file
+
+==================== TEST EXECUTION START (Attempt 3 - Corrected Execution) ====================
+
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Hello Tinyshell
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Multiple   Spaces   Here
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Single Quoted String
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Escaped 'Quote'
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Before Comment
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ InitialValue
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Current value is MY_VAR
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ MY_VAR
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ 
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: getvar: Variable not set: MY_VAR
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ MY_VAR
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ A= A B= B
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: setvar: Invalid variable name: INVALID-VAR
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: getvar: Variable not set: NON_EXISTENT_VAR
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ $
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ src
+include
+tests
+NAMING_CONVENTIONS.md
+CMakeLists.txt
+run_tinyshell.bat
+run_tinyshell.sh
+README.md
+test_execution_log.txt
+build
+test_dir_tsh
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtest_dir_tsh[0m $ /home/ubuntu/tinyshell/test_dir_tsh
+[1;34mG1-HybridShell [0m[1;32mtest_dir_tsh[0m $ Test file content > test_file.txt
+[1;34mG1-HybridShell [0m[1;32mtest_dir_tsh[0m $ [1;34mG1-HybridShell [0m[1;32mtest_dir_tsh[0m $ Tinyshell: cat: `test_file.txt`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtest_dir_tsh[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ /home/ubuntu/tinyshell
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `test_dir_tsh/test_file.txt`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ src
+include
+tests
+NAMING_CONVENTIONS.md
+CMakeLists.txt
+run_tinyshell.bat
+run_tinyshell.sh
+README.md
+test_execution_log.txt
+build
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: cd: No such file or directory: non_existent_directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ /home/ubuntu/tinyshell
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ > existing_file_as_dir
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: mkdir: Cannot create directory `existing_file_as_dir`: File exists
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: ls: Cannot access `non_existent_file`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: cat: `non_existent_file`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `non_existent_file`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ content > test_dir_rm/file_inside.txt
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `test_dir_rm/file_inside.txt`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `test_dir_rm`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ /home/ubuntu/.nvm/versions/node/v22.13.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Warning: addpath modifies internal TINYSHELL_PATH, not system PATH used by external commands.
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ /new/conceptual/path
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ #include <stdio.h> > test_program.c
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ int main(int argc, char *argv[]) { printf("Hello C! Args: %dn", argc); for(int i=0; i<argc; ++i) printf(" %sn", argv[i]); return 0; } >> test_program.c
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: gcc: Source file not found or is not a regular file: test_program.c
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ #include <iostream> > test_program.cpp
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ #include <vector> >> test_program.cpp
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ #include <string> >> test_program.cpp
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ int main(int argc, char *argv[]) { std::cout << "Hello C++! Args: " << argc << std::endl; std::vector<std::string> args(argv, argv + argc); for(const auto& arg : args) { std::cout << " " << arg << std::endl; } return 5; } >> test_program.cpp
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: g++: Source file not found or is not a regular file: test_program.cpp
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: gcc: Source file not found or is not a regular file: non_existent_source.c
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: g++: Source file not found or is not a regular file: non_existent_source.cpp
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ int main() { printf("Hello" } > compile_error.c
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: gcc: Source file not found or is not a regular file: compile_error.c
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `test_program.c`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `test_program.cpp`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: rm: Cannot remove `compile_error.c`: No such file or directory
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $   1  #!/bin/bash
+  2  # Tinyshell (Group 1) Test Script - hybrid_project_tests.tsh
+  3  # This script contains commands intended to be fed line-by-line into the compiled tinyshell.
+  4  # --- Basic Commands & Output ---
+  5  echo Hello Tinyshell
+  6  echo "Multiple   Spaces   Here"
+  7  echo 'Single Quoted String'
+  8  echo Escaped\$Variable \'Quote\'
+  9  # --- Comments ---
+  10  echo Before Comment # This should be ignored
+  11  # This whole line is a comment
+  12  # --- Variable Management ---
+  13  setvar MY_VAR=InitialValue
+  14  getvar MY_VAR
+  15  echo Current value is $MY_VAR
+  16  setvar MY_VAR="New Value With Spaces"
+  17  echo $MY_VAR
+  18  getvar MY_VAR
+  19  unsetvar MY_VAR
+  20  getvar MY_VAR # Should fail or print nothing
+  21  echo $MY_VAR # Should expand to empty
+  22  setvar A=10
+  23  setvar B=20
+  24  echo A=$A B=$B
+  25  # --- Error Handling: Variables ---
+  26  setvar INVALID-VAR=test # Invalid name (should be handled)
+  27  getvar NON_EXISTENT_VAR # Non-existent var (should be handled)
+  28  unsetvar NON_EXISTENT_VAR # Unset non-existent var (should be handled)
+  29  echo $ # Lone dollar sign (should be handled)
+  30  # echo ${UNCLOSED # Removed problematic line causing bash syntax error
+  31  # --- Filesystem Builtins --- 
+  32  mkdir test_dir_tsh
+  33  ls
+  34  cd test_dir_tsh
+  35  pwd
+  36  echo "Test file content" > test_file.txt # Assumes basic redirection might work via system() or is handled internally
+  37  ls
+  38  cat test_file.txt
+  39  cd ..
+  40  pwd
+  41  rm test_dir_tsh/test_file.txt
+  42  ls test_dir_tsh # Should be empty or show nothing
+  43  rm test_dir_tsh
+  44  ls
+  45  # --- Error Handling: Filesystem ---
+  46  cd non_existent_directory
+  47  pwd # Should still be in the original directory
+  48  mkdir existing_file_as_dir # Create a file first
+  49  echo > existing_file_as_dir
+  50  mkdir existing_file_as_dir # Try to make dir with same name
+  51  rm existing_file_as_dir # Clean up file
+  52  ls non_existent_file
+  53  cat non_existent_file
+  54  rm non_existent_file
+  55  mkdir test_dir_rm
+  56  echo "content" > test_dir_rm/file_inside.txt
+  57  rm test_dir_rm # Should fail (directory not empty)
+  58  rm test_dir_rm/file_inside.txt
+  59  rm test_dir_rm # Should succeed now
+  60  # --- Path Commands ---
+  61  path
+  62  addpath /new/conceptual/path # Conceptual, check warning
+  63  getvar TINYSHELL_PATH # Check internal variable
+  64  # --- C/C++ Compilation ---
+  65  # Create dummy C file
+  66  echo "#include <stdio.h>" > test_program.c
+  67  echo "int main(int argc, char *argv[]) { printf(\"Hello C! Args: %d\\n\", argc); for(int i=0; i<argc; ++i) printf(\" %s\\n\", argv[i]); return 0; }" >> test_program.c
+  68  c test_program.c arg1 "arg 2"
+  69  # Create dummy C++ file
+  70  echo "#include <iostream>" > test_program.cpp
+  71  echo "#include <vector>" >> test_program.cpp
+  72  echo "#include <string>" >> test_program.cpp
+  73  echo "int main(int argc, char *argv[]) { std::cout << \"Hello C++! Args: \" << argc << std::endl; std::vector<std::string> args(argv, argv + argc); for(const auto& arg : args) { std::cout << \" \" << arg << std::endl; } return 5; }" >> test_program.cpp
+  74  cpp test_program.cpp cpp_arg1 "arg two"
+  75  echo $? # Check exit status from C++ program
+  76  # --- Error Handling: C/C++ ---
+  77  c non_existent_source.c
+  78  cpp non_existent_source.cpp
+  79  # Create C file with compile error
+  80  echo "int main() { printf(\"Hello\" }" > compile_error.c
+  81  c compile_error.c
+  82  # Clean up test source files
+  83  rm test_program.c
+  84  rm test_program.cpp
+  85  rm compile_error.c
+  86  # --- History Command ---
+  87  history
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $   84  rm test_program.cpp
+  85  rm compile_error.c
+  86  # --- History Command ---
+  87  history
+  88  history 5 # Show last 5 commands
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Unknown binary operator: non_existent_file_for_test
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ ?
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Invalid test expression
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: test: Integer expression expected: 10 or abc
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token at start of command: then
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token at start of command: then
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token at start of command: then
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token at start of command: then
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Y is abc
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token after command sequence: else
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Y is not abc
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token after command sequence: fi
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ 100
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token at start of command: do
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Count: 0
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token at start of command: then
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token after command sequence: done
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Final Count: 0
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Parser error: Expected 'done' for for body, but found '' (type 20)
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Loop item: 
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token after command sequence: done
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Var i after loop: 
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Parser error: Expected 'done' for for body, but found '' (type 20)
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ List item: 
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Tinyshell: Parser error: Unexpected token after command sequence: done
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ [1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ Testing exit...
+[1;34mG1-HybridShell [0m[1;32mtinyshell[0m $ 
+==================== TEST EXECUTION END (Attempt 3 - Corrected Execution) ====================
+

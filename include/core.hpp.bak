@@ -1,0 +1,27 @@
+#ifndef CORE_HPP
+#define CORE_HPP
+
+#include <string>
+#include <vector>
+#include "environment.hpp"
+#include "job_ctl.hpp"
+
+class ShellCore {
+public:
+    ShellCore();
+    int run();
+    const std::vector<std::string>& get_history() const; // Added for history builtin
+
+private:
+    Environment shell_env;
+    JobControl job_control;
+    std::vector<std::string> command_history;
+    static const size_t MAX_HISTORY_SIZE = 1000; // Limit history size
+
+    void display_prompt();
+    void add_to_history(const std::string& line);
+    // Add methods for lexing, parsing, executing later (Executor will handle this)
+};
+
+#endif // CORE_HPP
+

@@ -1,0 +1,179 @@
+#!/bin/bash
+# Tinyshell (Group 1) Test Script - hybrid_project_tests.tsh
+# This script contains commands intended to be fed line-by-line into the compiled tinyshell.
+
+# --- Basic Commands & Output ---
+echo Hello Tinyshell
+echo "Multiple   Spaces   Here"
+echo 'Single Quoted String'
+echo Escaped\$Variable \'Quote\'
+
+# --- Comments ---
+echo Before Comment # This should be ignored
+# This whole line is a comment
+
+# --- Variable Management ---
+setvar MY_VAR=InitialValue
+getvar MY_VAR
+echo Current value is $MY_VAR
+setvar MY_VAR="New Value With Spaces"
+echo $MY_VAR
+getvar MY_VAR
+unsetvar MY_VAR
+getvar MY_VAR # Should fail or print nothing
+echo $MY_VAR # Should expand to empty
+setvar A=10
+setvar B=20
+echo A=$A B=$B
+
+# --- Error Handling: Variables ---
+setvar INVALID-VAR=test # Invalid name (should be handled)
+getvar NON_EXISTENT_VAR # Non-existent var (should be handled)
+unsetvar NON_EXISTENT_VAR # Unset non-existent var (should be handled)
+echo $ # Lone dollar sign (should be handled)
+# echo ${UNCLOSED # Removed problematic line causing bash syntax error
+
+# --- Filesystem Builtins --- 
+mkdir test_dir_tsh
+ls
+cd test_dir_tsh
+pwd
+echo "Test file content" > test_file.txt # Assumes basic redirection might work via system() or is handled internally
+ls
+cat test_file.txt
+cd ..
+pwd
+rm test_dir_tsh/test_file.txt
+ls test_dir_tsh # Should be empty or show nothing
+rm test_dir_tsh
+ls
+
+# --- Error Handling: Filesystem ---
+cd non_existent_directory
+pwd # Should still be in the original directory
+mkdir existing_file_as_dir # Create a file first
+echo > existing_file_as_dir
+mkdir existing_file_as_dir # Try to make dir with same name
+rm existing_file_as_dir # Clean up file
+ls non_existent_file
+cat non_existent_file
+rm non_existent_file
+mkdir test_dir_rm
+echo "content" > test_dir_rm/file_inside.txt
+rm test_dir_rm # Should fail (directory not empty)
+rm test_dir_rm/file_inside.txt
+rm test_dir_rm # Should succeed now
+
+# --- Path Commands ---
+path
+addpath /new/conceptual/path # Conceptual, check warning
+getvar TINYSHELL_PATH # Check internal variable
+
+# --- C/C++ Compilation ---
+# Create dummy C file
+echo "#include <stdio.h>" > test_program.c
+echo "int main(int argc, char *argv[]) { printf(\"Hello C! Args: %d\\n\", argc); for(int i=0; i<argc; ++i) printf(\" %s\\n\", argv[i]); return 0; }" >> test_program.c
+c test_program.c arg1 "arg 2"
+
+# Create dummy C++ file
+echo "#include <iostream>" > test_program.cpp
+echo "#include <vector>" >> test_program.cpp
+echo "#include <string>" >> test_program.cpp
+echo "int main(int argc, char *argv[]) { std::cout << \"Hello C++! Args: \" << argc << std::endl; std::vector<std::string> args(argv, argv + argc); for(const auto& arg : args) { std::cout << \" \" << arg << std::endl; } return 5; }" >> test_program.cpp
+cpp test_program.cpp cpp_arg1 "arg two"
+echo $? # Check exit status from C++ program
+
+# --- Error Handling: C/C++ ---
+c non_existent_source.c
+cpp non_existent_source.cpp
+# Create C file with compile error
+echo "int main() { printf(\"Hello\" }" > compile_error.c
+c compile_error.c
+
+# Clean up test source files
+rm test_program.c
+rm test_program.cpp
+rm compile_error.c
+
+# --- History Command ---
+history
+history 5 # Show last 5 commands
+
+# --- Test Command (`test` and `[ ]`) ---
+test -e CMakeLists.txt # Should exist
+echo $?
+test -f CMakeLists.txt # Should be a file
+echo $?
+test -d src # Should be a directory
+echo $?
+test -e non_existent_file_for_test
+echo $?
+[ -f non_existent_file_for_test ]
+echo $?
+[ "hello" = "hello" ]
+echo $?
+[ "hello" == "hello" ]
+echo $?
+[ "hello" != "world" ]
+echo $?
+[ 10 -eq 10 ]
+echo $?
+[ 10 -ne 5 ]
+echo $?
+[ 10 -gt 5 ]
+echo $?
+[ 10 -ge 10 ]
+echo $?
+[ 5 -lt 10 ]
+echo $?
+[ 5 -le 5 ]
+echo $?
+
+# --- Error Handling: Test ---
+test # No expression
+test -z # Unknown unary operator
+test "hello" # Not enough args for binary
+test 10 -eq abc # Invalid integer
+# [ hello ] # Missing closing bracket - Test how shell handles this
+# [ hello = world # Missing closing bracket - Test how shell handles this
+
+# --- Control Flow: If/Elif/Else/Fi ---
+setvar X=5
+if test $X -eq 5; then echo "X is 5"; fi
+if [ $X -gt 10 ]; then echo "X > 10"; else echo "X <= 10"; fi
+setvar Y=abc
+if test -d src; then echo "src is dir"; elif test -f src; then echo "src is file"; else echo "src is other"; fi
+if test $Y = "abc"; then
+  echo "Y is abc"
+  setvar Z=100
+else
+  echo "Y is not abc"
+fi
+getvar Z
+
+# --- Control Flow: While/Do/Done ---
+setvar COUNT=0
+while [ $COUNT -lt 3 ]; do
+  echo "Count: $COUNT"
+  # Basic arithmetic like $((...)) is likely not supported by tinyshell, requires external calc or complex builtin
+  # Manual increment for testing:
+  if [ $COUNT -eq 0 ]; then setvar COUNT=1; elif [ $COUNT -eq 1 ]; then setvar COUNT=2; elif [ $COUNT -eq 2 ]; then setvar COUNT=3; fi
+done
+echo "Final Count: $COUNT"
+
+# --- Control Flow: For/In/Do/Done ---
+for i in word1 word2 word3; do
+  echo "Loop item: $i"
+done
+echo "Var i after loop: $i" # Check if 'i' is unset or restored
+setvar LIST="itemA itemB"
+for j in $LIST; do # Expansion might yield single word "itemA itemB" or two words depending on implementation
+  echo "List item: $j"
+done
+
+# --- Exit Command ---
+echo "Testing exit..."
+exit 0 # Exit with status 0
+# The following commands should not execute if exit works
+echo "This should not be printed"
+

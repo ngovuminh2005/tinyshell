@@ -1,0 +1,97 @@
+#include "core.hpp"
+#include "lexer.hpp"
+#include "parser_ast.hpp"
+#include "executor.hpp"
+#include "environment.hpp"
+#include "job_ctl.hpp"
+#include "signal_event.hpp"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <windows.h>
+#include <limits.h>
+#include <memory>
+
+ShellCore::ShellCore() {
+    initialize_signal_handling(); // Setup Ctrl+C handler
+}
+
+void ShellCore::add_to_history(const std::string& line) {
+    if (!line.empty()) {
+        if (command_history.size() >= MAX_HISTORY_SIZE) {
+            command_history.erase(command_history.begin()); // Remove oldest
+        }
+        command_history.push_back(line);
+    }
+}
+
+const std::vector<std::string>& ShellCore::get_history() const {
+    return command_history;
+}
+
+int ShellCore::run() {
+    std::string line;
+    Executor executor(shell_env, job_control);
+
+    while (true) {
+        display_prompt();
+        if (!std::getline(std::cin, line)) {
+            if (std::cin.eof()) {
+                std::cout << std::endl; 
+                break; 
+            } else {
+                perror("getline");
+                break;
+            }
+        }
+        
+        add_to_history(line);
+
+        if (line.empty() || line.find_first_not_of(" \t\n\r") == std::string::npos) {
+            continue; // Skip empty or whitespace-only lines
+        }
+
+        // --- Lexing ---
+        Lexer lexer(line);
+        std::vector<Token> tokens = lexer.tokenize();
+        // Optional: Print tokens for debugging
+        // for(const auto& t : tokens) { std::cout << "[" << static_cast<int>(t.type) << ":" << t.value << "] "; } std::cout << std::endl;
+        if (tokens.empty() || (tokens.size() == 1 && tokens[0].type == TokenType::END_OF_FILE)) {
+            continue;
+        }
+
+        // --- Parsing ---
+        Parser parser(tokens);
+        std::shared_ptr<ASTNode> ast = parser.parse();
+        if (!ast) {
+            // Parser reported error or empty command after parsing
+            shell_env.set_last_exit_status(1); // Indicate error
+            continue;
+        }
+
+        // --- Execution ---
+        clear_foreground_pid(); // Ensure no foreground PID before execution
+        int status = executor.execute(ast);
+        shell_env.set_last_exit_status(status);
+
+        if (status == STATUS_EXIT) { // Check for exit signal from builtin
+            break;
+        }
+        
+        // Check background job status after command execution
+        job_control.update_job_states();
+    }
+    return shell_env.get_last_exit_status();
+}
+
+void ShellCore::display_prompt() {
+    char current_dir[PATH_MAX];
+    if (GetCurrentDirectoryA(PATH_MAX, current_dir)) {
+        // TODO: Add optional color
+        std::cout << "G1-Shell " << current_dir << " $ ";
+    } else {
+        std::cout << "G1-Shell ? $ "; 
+    }
+    std::cout.flush(); 
+}
+

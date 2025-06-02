@@ -1,0 +1,3 @@
+C:/Users/Ngo Vu Minh/Desktop/New folder/csv_read/OS/tinyshell/build/CMakeFiles/tinyshell.dir
+C:/Users/Ngo Vu Minh/Desktop/New folder/csv_read/OS/tinyshell/build/CMakeFiles/edit_cache.dir
+C:/Users/Ngo Vu Minh/Desktop/New folder/csv_read/OS/tinyshell/build/CMakeFiles/rebuild_cache.dir
